@@ -15,25 +15,38 @@
 	<p align="center">
 		<img src="img/logo.png" />
 	</p>
-	<p align="center"><logic:present name="utilisateurConnecteDto" scope="session">
-			Bienvenue
-			<bean:write name="utilisateurConnecteDto" property="nom"
-			scope="session" />(
-			<bean:write name="utilisateurConnecteDto" property="profil"
-			scope="session" />)
-		<br />
-		<a href="Deconnexion.do">Se deconnecter.</a>
-	</logic:present>
-	<logic:notPresent name="utilisateurConnecteDto" scope="session">
+	<p align="center">
+		<logic:present name="utilisateurConnecteDto" scope="session">
+			Bienvenue <bean:write name="utilisateurConnecteDto" property="nom"
+				scope="session" /> (<bean:write name="utilisateurConnecteDto"
+				property="profil" scope="session" />)
+		</logic:present>
+		<logic:notPresent name="utilisateurConnecteDto" scope="session">
 				Bienvenue Visiteur
- 	</logic:notPresent></p>
+ 	</logic:notPresent>
+	</p>
 
 	<!-- La liste des liens -->
-	<br/><ul>
-		<li><a href="goToCatalogue.do">Accueil</a></li>
-		<li><a href="goToConnexion.do">Se connecter</a></li>
+	<ul>
+		<logic:notPresent name="utilisateurConnecteDto" scope="session">
+			<li><a href="goToConnexion.do">Se connecter</a></li>
+		</logic:notPresent>
 		<logic:present name="utilisateurConnecteDto" scope="session">
-		<!-- TODO : AJOUTER LES LIENS POUR ADMIN ET CLIENTS AVEC DES LOGIC IF -->
+			<logic:equal name="utilisateurConnecteDto" property="profil"
+				scope="session" value="client">
+				<li><a href="goToCatalogue.do">Accueil</a></li>
+				<li><a href="goToMonPanier.do">Mon Panier</a></li>
+				<li><a href="goToMesCommandes.do">Mes commandes</a></li>
+				<li><a href="goToDeconnexion.do">Se deconnecter</a></li>
+			</logic:equal>
+			<logic:equal name="utilisateurConnecteDto" property="profil"
+				scope="session" value="admin">
+				<li><a href="goToCatalogue.do">Accueil</a></li>
+				<li><a href="goToMonPanier.do">Mon Panier</a></li>
+				<li><a href="goToMesCommandes.do">Mes commandes</a></li>
+				<li><a href="goToGestionProduits.do">Gestion de produits</a></li>
+				<li><a href="goToDeconnexion.do">Se deconnecter</a></li>
+			</logic:equal>
 		</logic:present>
 	</ul>
 </body>

@@ -6,7 +6,13 @@
 <struts-config>
 
 	<action-mappings>
+		<!-- Action d'initialisation -->
+		<action type="presentation.InitAction" parameter="" input="" scope="request"
+			path="/init">
+			<forward path="/goToCatalogue.do" redirect="true" name="success" />
+		</action>
 
+		<!-- Actions de forward -->
 		<action path="/goToCatalogue" scope="request" input=""
 			parameter="" type="presentation.panier.action.forward.GoToCatalogueAction">
 			<forward name="success" path="catalogue" redirect="false" />
@@ -35,7 +41,7 @@
 			type="presentation.panier.action.forward.GoToDetailProduitAction">
 			<forward name="success" path="detailProduit" redirect="false" />
 		</action>
-		<action path="/goToDetailProduit" scope="request" input=""
+		<action path="/goToGestionProduits" scope="request" input=""
 			parameter=""
 			type="presentation.panier.action.forward.GoToGestionProduitsAction">
 			<forward name="success" path="gestionProduits" redirect="false" />

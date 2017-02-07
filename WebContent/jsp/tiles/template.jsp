@@ -16,9 +16,11 @@
 			<td height="150" width="100%" colspan="2" valign="top"><tiles:insert
 					name="header" /></td>
 		</tr>
-		<tr >
-			<td height="550" width="15%" valign="top"><tiles:insert attribute="menu" /></td>
-			<td height="550" width="75%" valign="top"><tiles:insert name="body" /></td>
+		<tr>
+			<td height="550" width="15%" valign="top"><tiles:insert
+					attribute="menu" /></td>
+			<td height="550" width="75%" valign="top"><tiles:insert
+					name="body" /></td>
 		</tr>
 		<tr>
 			<td height="150" width="100%" colspan="2" valign="top"><tiles:insert
