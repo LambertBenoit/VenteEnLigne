@@ -1,0 +1,70 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+
+<tiles-definitions>
+
+	<definition name="template" path="/jsp/tiles/template.jsp">
+		<put name="header" value="/jsp/tiles/header.jsp" />
+		<put name="menu" value="/jsp/tiles/menu.jsp" />
+		<put name="footer" value="/jsp/tiles/footer.jsp" />
+		<put name="body" value="/jsp/tiles/body.jsp" />
+	</definition>
+
+	<!-- Il faut ici déclarer chaque JSP, celle ci devra étendre de common-layout, 
+		mais on aura un put name ="body" value = "lienjsp" -->
+	<definition name="catalogue" extends="template">
+		<put name="title" value="Catalogue" />
+		<put name="body" value="/jsp/pages/catalogue.jsp" />
+	</definition>
+
+	<definition name="accesInterdit" extends="template">
+		<put name="title" value="Acces interdit" />
+		<put name="body" value="/jsp/pages/accesInterdit.jsp" />
+	</definition>
+
+	<definition name="detailProduit" extends="template">
+		<put name="title" value="Detail d'un produit" />
+		<put name="body" value="/jsp/pages/detailProduit.jsp" />
+	</definition>
+	
+	<definition name="connexion" extends="template">
+		<put name="title" value="Connexion" />
+		<put name="body" value="/jsp/pages/connexion.jsp" />
+	</definition>
+
+	<definition name="mesCommandes" extends="template">
+		<put name="title" value="Mes Commandes" />
+		<put name="body" value="/jsp/pages/mesCommandes.jsp" />
+	</definition>
+
+	<definition name="detailCommande" extends="template">
+		<put name="title" value="Detail d'une commande" />
+		<put name="body" value="/jsp/pages/detailCommande.jsp" />
+	</definition>
+	
+	<definition name="monPanier" extends="template">
+		<put name="title" value="Mon Panier" />
+		<put name="body" value="/jsp/pages/monPanier.jsp" />
+	</definition>			
+	
+	<definition name="gestionProduits" extends="template">
+		<put name="title" value="Gestion des produits" />
+		<put name="body" value="/jsp/pages/gestionProduits.jsp" />
+	</definition>	
+
+	<definition name="ajouterProduit" extends="template">
+		<put name="title" value="Ajouter un produit" />
+		<put name="body" value="/jsp/pages/ajouterProduit.jsp" />
+	</definition>
+
+	<definition name="modifierProduit" extends="template">
+		<put name="title" value="Modifier un produit" />
+		<put name="body" value="/jsp/pages/modifierProduit.jsp" />
+	</definition>	
+
+	<definition name="supprimerProduit" extends="template">
+		<put name="title" value="Supprimer un produit" />
+		<put name="body" value="/jsp/pages/supprimerProduit.jsp" />
+	</definition>				
+</tiles-definitions>
